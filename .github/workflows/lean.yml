@@ -1,4 +1,33 @@
 name: lean
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install the pinned Lean toolchain
+        shell: bash
+        run: |
+          curl --fail --silent --show-error --location \
+            https://raw.githubusercontent.com/leanprover/elan/464c9d28395000a2a0128e07081e4956d50eced2/elan-init.sh \
+            | sh -s -- -y
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+      - name: Resolve the tagged mathlib dependency
+        run: lake update
+
+      - name: Restore the matching mathlib build cache
+        run: lake exe cache get
+
+      - name: Build every imported formal module
+        run: lake build
+name: lean
 on: [push, pull_request]
 jobs:
   build:
