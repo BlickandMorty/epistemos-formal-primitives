@@ -33,6 +33,7 @@ Sorry budget at lock: ≤ 2.
 -/
 
 import Mathlib.Topology.ContinuousMap.StoneWeierstrass
+import Mathlib.Data.Complex.Basic
 
 namespace Epistemos.E1
 
