@@ -27,14 +27,3 @@ jobs:
 
       - name: Build every imported formal module
         run: lake build
-name: lean
-on: [push, pull_request]
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: leanprover/lean-action@v1
-        with:
-          lake-package-directory: .
-
