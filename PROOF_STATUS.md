@@ -6,10 +6,10 @@ This ledger was produced from the recovered Lean source at Epistemos main commit
 
 | Status | Count | Meaning |
 | --- | ---: | --- |
-| Proof term present | 210 | The theorem/lemma declaration block contains no `sorry`; `lake build` is the type-checking gate. |
+| Proof term present | 209 | The theorem/lemma declaration block contains no `sorry`; `lake build` is the type-checking gate. |
 | Candidate | 37 | The declaration block contains `sorry` and is not claimed as proved. |
 
-The source also contains `sorry` outside theorem/lemma blocks (for example umbrella or schema definitions), so a raw token count is larger than the candidate-declaration count. There are no explicit `axiom` declarations in this source tree.
+That is 246 actual declarations in total. I strip Lean block and line comments before counting; otherwise the phrase “theorem itself” inside the prose comment in `E5.lean` is falsely counted as a declaration. The source also contains `sorry` outside theorem/lemma blocks (for example umbrella or schema definitions), so a raw token count is larger than the candidate-declaration count. There are no explicit `axiom` declarations in this source tree.
 
 ## Candidate declarations
 
@@ -59,7 +59,7 @@ The source also contains `sorry` outside theorem/lemma blocks (for example umbre
 | --- | ---: |
 | `E3.lean` | 1 |
 | `E4.lean` | 2 |
-| `E5.lean` | 2 |
+| `E5.lean` | 1 |
 | `EML.lean` | 24 |
 | `EMLGeneratedSample.lean` | 9 |
 | `Geometry.lean` | 14 |
@@ -76,4 +76,3 @@ The source also contains `sorry` outside theorem/lemma blocks (for example umbre
 ## Promotion rule
 
 A candidate moves to proof-bearing only when its own declaration has no `sorry`, the whole Lake project builds, and the change includes a review of whether the formal statement still matches the natural-language claim.
-
