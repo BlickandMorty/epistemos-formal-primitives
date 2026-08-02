@@ -11,8 +11,8 @@ I do not want the unfinished claims to disappear, but I also do not want a candi
 
 ## Current source reality
 
-- 247 theorem/lemma declarations
-- 210 declarations with proof terms present
+- 246 actual theorem/lemma declarations after stripping Lean comments
+- 209 declarations with proof terms present
 - 37 declarations whose body still contains `sorry`
 - 0 explicit `axiom` declarations in the theorem source
 - 48 Lean source files plus the Lake project
@@ -37,4 +37,3 @@ Recovered from `BlickandMorty/Epistemos` at main commit `987f0a976`. The primiti
 ## What “proof-term present” means here
 
 It means Lean has a term for that declaration and the file does not discharge that declaration with `sorry`. It does not mean every surrounding research interpretation is automatically true, useful, novel, or empirically validated. Definitions and assumptions still matter, and I want reviews of those too.
-
